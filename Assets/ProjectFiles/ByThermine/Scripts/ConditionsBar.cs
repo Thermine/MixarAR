@@ -42,6 +42,7 @@ public class ConditionsBar : MonoBehaviour
         if(BarValue > 0)
         {
             BarControl(barType);
+            ConditionBar.value = BarValue;
         }
         else if(BarValue <= 0)
         {
@@ -50,7 +51,7 @@ public class ConditionsBar : MonoBehaviour
     }
 
 
-    private void BarControl(BarType barType)
+    public void BarControl(BarType barType)
     {
         ConditionBar.value = BarValue;
         if (barType == BarType.hunger) // hunger state
@@ -65,6 +66,7 @@ public class ConditionsBar : MonoBehaviour
         {
             BarValue -= 1f* Time.deltaTime; // 0.25
         }
+        ConditionBar.value = BarValue;
     }
 
     public void ChangeBarValue()
@@ -72,4 +74,16 @@ public class ConditionsBar : MonoBehaviour
         BarValue += 1f;
     }
 
+    public void ChangeCleannessBar()
+    {
+        BarValue += 25f;
+    }
+    public void ChangeHappinessBar()
+    {
+        BarValue += 30f;
+    }
+    public void ChangeHungerBar()
+    {
+        BarValue += 15f;
+    }
 }
